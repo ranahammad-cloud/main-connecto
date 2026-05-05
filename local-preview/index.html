@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connecto Local Preview</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav shell">
+    <a class="brand" href="#top" aria-label="Connecto home"><span>Co</span>Connecto</a>
+    <nav aria-label="Primary navigation">
+      <a href="#marketplace">Marketplace</a>
+      <a href="#booking">Booking</a>
+      <a href="#session">Session</a>
+      <a href="#admin">Admin</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button">🌙 Dark</button>
+      <select id="roleSelect" aria-label="Preview dashboard role">
+        <option>Interviewee</option>
+        <option>Interviewer</option>
+        <option>Admin</option>
+      </select>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Mock interviews, real momentum</p>
+        <h1>Practice with experts before the interview that matters.</h1>
+        <p class="hero-text">Use this dependency-free local environment to click through the Connecto marketplace, preview role-based dashboards, simulate bookings, and see the product direction without installing npm or Composer packages.</p>
+        <div class="actions">
+          <a class="button" href="#marketplace">Browse interviewers</a>
+          <button class="button secondary" id="openBookingHero" type="button">Preview booking flow</button>
+        </div>
+        <div class="trust-row" aria-label="Product stats">
+          <span><strong>4.9/5</strong> avg rating</span>
+          <span><strong>10%</strong> platform commission</span>
+          <span><strong>$5–$50</strong> pricing range</span>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Live session preview">
+        <div class="video-frame">
+          <div class="pulse"></div>
+          <span>Agora / 100ms room</span>
+          <strong>connecto-session-248</strong>
+        </div>
+        <div class="session-tools">
+          <span>⏱ 43:12 timer</span>
+          <span>💬 Chat enabled</span>
+          <span>📝 Feedback draft</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell dashboard-grid" aria-label="Role dashboard preview">
+      <article class="dashboard-card">
+        <p class="eyebrow" id="roleEyebrow">Interviewee dashboard</p>
+        <h2 id="roleTitle">Your practice command center</h2>
+        <div id="roleMetrics" class="metrics-list"></div>
+      </article>
+      <article class="wallet-card">
+        <p class="eyebrow">Wallet & escrow</p>
+        <h2>$1,240.00</h2>
+        <p>Funds are tracked in wallet transactions and released after completed interviews.</p>
+        <div class="escrow-bar"><span style="width:72%"></span></div>
+        <small>$8.4k currently held in platform escrow preview data</small>
+      </article>
+    </section>
+
+    <section class="shell marketplace" id="marketplace">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Marketplace</p>
+          <h2>Find vetted interviewers by skill, price, and availability.</h2>
+        </div>
+        <div class="filters" role="search">
+          <input id="searchInput" type="search" placeholder="Search product, Laravel, resume…" aria-label="Search interviewers" />
+          <select id="priceFilter" aria-label="Maximum price filter">
+            <option value="100">Any price</option>
+            <option value="30">Up to $30</option>
+            <option value="40">Up to $40</option>
+            <option value="50">Up to $50</option>
+          </select>
+        </div>
+      </div>
+      <div class="cards" id="interviewerCards"></div>
+    </section>
+
+    <section class="shell flow" id="booking">
+      <article>
+        <span class="icon">📅</span>
+        <h3>Calendar-based booking</h3>
+        <p>Pick an open slot, send a request, and let the interviewer accept or reject from their dashboard.</p>
+      </article>
+      <article>
+        <span class="icon">💳</span>
+        <h3>Stripe escrow simulation</h3>
+        <p>Payment intent preview calculates the 10% Connecto commission and interviewer payout.</p>
+      </article>
+      <article>
+        <span class="icon">⭐</span>
+        <h3>Feedback and reviews</h3>
+        <p>Complete the mock interview, receive feedback, then rate and review the expert.</p>
+      </article>
+    </section>
+
+    <section class="shell session" id="session">
+      <div>
+        <p class="eyebrow">Interview room</p>
+        <h2>Video session UI with timer, chat, and feedback notes.</h2>
+        <p>This preview mirrors the future Agora or 100ms integration surface so stakeholders can validate the session experience before API keys are wired.</p>
+      </div>
+      <div class="room-grid">
+        <div class="room-main">Candidate Camera</div>
+        <div class="room-side">Interviewer Camera</div>
+        <div class="chat-box"><strong>Chat</strong><span>“Let’s walk through your system design tradeoffs.”</span></div>
+        <div class="feedback-box"><strong>Feedback</strong><span>Great structure. Add clearer latency assumptions.</span></div>
+      </div>
+    </section>
+
+    <section class="shell admin" id="admin">
+      <div>
+        <p class="eyebrow">Admin panel</p>
+        <h2>Approve interviewers, monitor sessions, and resolve disputes.</h2>
+      </div>
+      <div class="admin-grid">
+        <div><strong>18</strong><span>Pending approvals</span></div>
+        <div><strong>4</strong><span>Open disputes</span></div>
+        <div><strong>312</strong><span>Transactions logged</span></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="bookingModal" aria-labelledby="bookingTitle">
+    <form method="dialog" class="modal-card">
+      <button class="close" value="cancel" aria-label="Close booking preview">×</button>
+      <p class="eyebrow">Booking preview</p>
+      <h2 id="bookingTitle">Book <span id="modalName">Maya Chen</span></h2>
+      <label>Choose a slot
+        <select id="slotSelect">
+          <option>Today, 6:00 PM</option>
+          <option>Tomorrow, 10:30 AM</option>
+          <option>Friday, 2:00 PM</option>
+        </select>
+      </label>
+      <div class="price-breakdown">
+        <div><span>Session price</span><strong id="modalPrice">$35.00</strong></div>
+        <div><span>Connecto commission (10%)</span><strong id="modalFee">$3.50</strong></div>
+        <div><span>Interviewer payout</span><strong id="modalPayout">$31.50</strong></div>
+      </div>
+      <button class="button" value="confirm">Simulate Stripe checkout</button>
+    </form>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
